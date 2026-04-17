@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mr Pool Leak Repair — Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">💧</span>
+        <div>
+          <span class="logo-title">MR POOL LEAK REPAIR</span>
+          <span class="logo-sub">Internal Hub</span>
+        </div>
+      </div>
+      <div class="header-badge">TEAM ONLY</div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg-text">POOL</div>
+      <h1>Command<br /><em>Center</em></h1>
+      <p>Everything you need — links, tools, status, and support — in one place.</p>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section class="section" id="projects">
+      <div class="section-label">Built Tools</div>
+      <h2 class="section-title">What We've Built</h2>
+      <div class="cards-grid" id="projects-grid">
+
+        <!-- AI Repository -->
+        <a href="https://docs.google.com/spreadsheets/d/1bRrlO0a59FVl-Ei6rarFuC_s3tLTOLtCo-Gfl36Qi0o/edit?usp=sharing" target="_blank" class="card card--primary">
+          <div class="card-icon">🤖</div>
+          <div class="card-body">
+            <div class="card-tag">Spreadsheet</div>
+            <h3>AI Repository</h3>
+            <p>Central spreadsheet tracking all AI tools, prompts, and automations in use.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+
+        <!-- Knowledge Hub -->
+        <a href="https://drive.google.com/drive/folders/1mtnxAPXGds3X25Df3jaBDqOkJxTVcIgp?usp=drive_link" target="_blank" class="card">
+          <div class="card-icon">📁</div>
+          <div class="card-body">
+            <div class="card-tag">Google Drive</div>
+            <h3>Knowledge Hub</h3>
+            <p>Shared Drive folder with SOPs, guides, templates, and internal documentation.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+
+        <!-- Pool Remodeler -->
+        <a href="https://pool-remodeler-backend-production.up.railway.app/" target="_blank" class="card">
+          <div class="card-icon">🏊</div>
+          <div class="card-body">
+            <div class="card-tag">Web App</div>
+            <h3>Pool Remodeler</h3>
+            <p>Live Railway app for pool remodeling estimates and backend operations.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+
+        <!-- QA CallRail Dashboard -->
+        <a href="https://lookerstudio.google.com/reporting/93a6a0ad-b185-4fbd-8d63-7d94da55b171" target="_blank" class="card">
+          <div class="card-icon">📈</div>
+          <div class="card-body">
+            <div class="card-tag">Dashboard</div>
+            <h3>QA CallRail Dashboard</h3>
+            <p>Looker Studio report for call quality analysis and CallRail performance metrics.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+
+        <!-- CallRail Chat -->
+        <a href="https://aiclone.app.n8n.cloud/webhook/2b7c2c29-a030-407f-a944-efed9770232a/chat" target="_blank" class="card">
+          <div class="card-icon">💬</div>
+          <div class="card-body">
+            <div class="card-tag">AI Chat</div>
+            <h3>CallRail Chat</h3>
+            <p>AI-powered chat interface to query and explore the CallRail database via n8n.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- WORKING ON NOW -->
+    <section class="section" id="wip">
+      <div class="section-label">Status</div>
+      <h2 class="section-title">What I'm Working On</h2>
+      <div class="wip-block">
+        <div class="wip-dot"></div>
+        <div class="wip-content">
+          <p id="wip-text" class="wip-text">Loading...</p>
+          <span id="wip-updated" class="wip-updated"></span>
+        </div>
+        <button class="wip-edit-btn" id="wip-edit-btn" title="Edit status">✏️ Edit</button>
+      </div>
+
+      <!-- Edit Panel (hidden by default) -->
+      <div class="wip-edit-panel" id="wip-edit-panel" style="display:none;">
+        <textarea id="wip-input" rows="3" placeholder="What are you working on right now?"></textarea>
+        <div class="wip-actions">
+          <button class="btn btn--primary" id="wip-save-btn">Save Status</button>
+          <button class="btn btn--ghost" id="wip-cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKET SYSTEM -->
+    <section class="section" id="tickets">
+      <div class="section-label">Support</div>
+      <h2 class="section-title">Submit a Ticket</h2>
+      <p class="section-desc">Something broke? Submit a ticket and we'll look into it ASAP.</p>
+
+      <div class="ticket-layout">
+        <!-- Form -->
+        <div class="ticket-form-wrap">
+          <form id="ticket-form" class="ticket-form">
+            <div class="field">
+              <label for="t-name">Your Name</label>
+              <input type="text" id="t-name" placeholder="John Doe" required />
+            </div>
+            <div class="field">
+              <label for="t-email">Email (optional)</label>
+              <input type="email" id="t-email" placeholder="john@example.com" />
+            </div>
+            <div class="field">
+              <label for="t-type">Issue Type</label>
+              <select id="t-type" required>
+                <option value="">Select a type...</option>
+                <option value="crash">App / Site Crash</option>
+                <option value="bug">Bug / Wrong Behavior</option>
+                <option value="data">Data Issue</option>
+                <option value="access">Can't Access Something</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="t-desc">Description</label>
+              <textarea id="t-desc" rows="4" placeholder="Describe what happened, what you expected, and any error messages..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--submit" id="submit-btn">
+              <span id="submit-label">Submit Ticket</span>
+            </button>
+          </form>
+          <div id="ticket-success" class="ticket-success" style="display:none;">
+            <div class="success-icon">✓</div>
+            <h3>Ticket Submitted!</h3>
+            <p>We've received your report and will look into it soon.</p>
+            <button class="btn btn--ghost" id="new-ticket-btn">Submit Another</button>
+          </div>
+        </div>
+
+        <!-- Recent Tickets -->
+        <div class="ticket-list-wrap">
+          <h3 class="ticket-list-title">Recent Tickets</h3>
+          <div id="ticket-list" class="ticket-list">
+            <p class="empty-state">No tickets yet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Mr Pool Leak Repair &mdash; Internal Hub &copy; <span id="year"></span></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
