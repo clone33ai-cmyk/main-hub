@@ -10,7 +10,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="header-inner">
       <div class="logo">
@@ -26,7 +25,6 @@
 
   <main>
 
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-bg-text">POOL</div>
       <h1>Command<br /><em>Center</em></h1>
@@ -37,21 +35,9 @@
     <section class="section" id="projects">
       <div class="section-label">Built Tools</div>
       <h2 class="section-title">What We've Built</h2>
-      <div class="cards-grid" id="projects-grid">
+      <div class="cards-grid">
 
-        <!-- AI Repository -->
-        <a href="https://docs.google.com/spreadsheets/d/1bRrlO0a59FVl-Ei6rarFuC_s3tLTOLtCo-Gfl36Qi0o/edit?usp=sharing" target="_blank" class="card card--primary">
-          <div class="card-icon">🤖</div>
-          <div class="card-body">
-            <div class="card-tag">Spreadsheet</div>
-            <h3>AI Repository</h3>
-            <p>Central spreadsheet tracking all AI tools, prompts, and automations in use.</p>
-          </div>
-          <div class="card-arrow">→</div>
-        </a>
-
-        <!-- Knowledge Hub -->
-        <a href="https://drive.google.com/drive/folders/1mtnxAPXGds3X25Df3jaBDqOkJxTVcIgp?usp=drive_link" target="_blank" class="card">
+        <a href="https://drive.google.com/drive/folders/1mtnxAPXGds3X25Df3jaBDqOkJxTVcIgp?usp=drive_link" target="_blank" class="card card--primary">
           <div class="card-icon">📁</div>
           <div class="card-body">
             <div class="card-tag">Google Drive</div>
@@ -61,7 +47,6 @@
           <div class="card-arrow">→</div>
         </a>
 
-        <!-- Pool Remodeler -->
         <a href="https://pool-remodeler-backend-production.up.railway.app/" target="_blank" class="card">
           <div class="card-icon">🏊</div>
           <div class="card-body">
@@ -72,7 +57,6 @@
           <div class="card-arrow">→</div>
         </a>
 
-        <!-- QA CallRail Dashboard -->
         <a href="https://lookerstudio.google.com/reporting/93a6a0ad-b185-4fbd-8d63-7d94da55b171" target="_blank" class="card">
           <div class="card-icon">📈</div>
           <div class="card-body">
@@ -83,7 +67,6 @@
           <div class="card-arrow">→</div>
         </a>
 
-        <!-- CallRail Chat -->
         <a href="https://aiclone.app.n8n.cloud/webhook/2b7c2c29-a030-407f-a944-efed9770232a/chat" target="_blank" class="card">
           <div class="card-icon">💬</div>
           <div class="card-body">
@@ -97,26 +80,41 @@
       </div>
     </section>
 
-    <!-- WORKING ON NOW -->
+    <!-- WORKING ON / PROJECT TRACKER -->
     <section class="section" id="wip">
       <div class="section-label">Status</div>
-      <h2 class="section-title">What I'm Working On</h2>
-      <div class="wip-block">
-        <div class="wip-dot"></div>
-        <div class="wip-content">
-          <p id="wip-text" class="wip-text">Loading...</p>
-          <span id="wip-updated" class="wip-updated"></span>
-        </div>
-        <button class="wip-edit-btn" id="wip-edit-btn" title="Edit status">✏️ Edit</button>
+      <div class="wip-header">
+        <h2 class="section-title" style="margin-bottom:0">What I'm Working On</h2>
+        <button class="btn btn--primary" id="add-project-btn">+ Add Project</button>
       </div>
 
-      <!-- Edit Panel (hidden by default) -->
-      <div class="wip-edit-panel" id="wip-edit-panel" style="display:none;">
-        <textarea id="wip-input" rows="3" placeholder="What are you working on right now?"></textarea>
-        <div class="wip-actions">
-          <button class="btn btn--primary" id="wip-save-btn">Save Status</button>
-          <button class="btn btn--ghost" id="wip-cancel-btn">Cancel</button>
+      <!-- Add Project Form -->
+      <div class="wip-edit-panel" id="add-project-panel" style="display:none;">
+        <div class="field">
+          <label>Project Title</label>
+          <input type="text" id="proj-title" placeholder="e.g. CallRail AI integration" />
         </div>
+        <div class="field" style="margin-top:12px">
+          <label>Description (optional)</label>
+          <textarea id="proj-desc" rows="2" placeholder="Short description of what this involves..."></textarea>
+        </div>
+        <div class="field" style="margin-top:12px">
+          <label>Status</label>
+          <select id="proj-status">
+            <option value="in_progress">🔵 In Progress</option>
+            <option value="done">✅ Done</option>
+            <option value="canceled">❌ Canceled</option>
+          </select>
+        </div>
+        <div class="wip-actions" style="margin-top:14px">
+          <button class="btn btn--primary" id="proj-save-btn">Save Project</button>
+          <button class="btn btn--ghost" id="proj-cancel-btn">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Projects List -->
+      <div id="projects-list" class="projects-list">
+        <p class="empty-state">No projects yet. Click "+ Add Project" to get started.</p>
       </div>
     </section>
 
@@ -127,7 +125,6 @@
       <p class="section-desc">Something broke? Submit a ticket and we'll look into it ASAP.</p>
 
       <div class="ticket-layout">
-        <!-- Form -->
         <div class="ticket-form-wrap">
           <form id="ticket-form" class="ticket-form">
             <div class="field">
@@ -165,7 +162,6 @@
           </div>
         </div>
 
-        <!-- Recent Tickets -->
         <div class="ticket-list-wrap">
           <h3 class="ticket-list-title">Recent Tickets</h3>
           <div id="ticket-list" class="ticket-list">
